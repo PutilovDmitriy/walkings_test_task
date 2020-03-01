@@ -1,18 +1,19 @@
 import React, { useState, useContext } from "react";
-import Button from './Button';
-import Context from '../context';
+import Button from '../Button';
+import Context from '../../context';
 import PropTypes from 'prop-types';
 
 
 function WalkingAddForm({ onCreate }) {
     const [newWalkingDate, setNewWalkingDate] = useState("");
-    const [newWalkingDistance, setNewWalkingDistance] = useState("");
+    const [newWalkingDistance, setNewWalkingDistance] = useState(null);
 
     function submitTest(event) {
         event.preventDefault()
         if (newWalkingDate.trim() && newWalkingDistance.trim()) {
             onCreate(newWalkingDate, newWalkingDistance)
-            setNewWalkingDate(""); setNewWalkingDistance("");
+            setNewWalkingDate(""); 
+            setNewWalkingDistance(null);
         }
     }
 

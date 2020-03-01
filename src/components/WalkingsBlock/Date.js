@@ -1,5 +1,5 @@
 import React from "react";
-import P from './P';
+import P from '../P';
 
 function ucFirst(str) {
     if (!str) return str;
@@ -22,7 +22,7 @@ function dayN(d) {
     let options = {
         year: 'numeric',
         month: 'numeric',
-        day: 'numeric',
+        day: 'numeric'
       };
     
     return newD.toLocaleString("ru", options);

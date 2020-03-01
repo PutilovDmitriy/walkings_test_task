@@ -1,13 +1,14 @@
 import React, {useContext} from "react";
-import CustomScrollbars from './CustomScrollbars';
+import CustomScrollbars from '../CustomScrollbars';
 import Walking from './Walking';
-import Table from "./Table";
-import Context from '../context';
+import Table from "../Table";
+import Context from '../../context';
 
 
 function Walkings () {  
 
     const { walkingsData } = useContext(Context);
+    let i = 0;
 
     return (
       <CustomScrollbars style={{ width: "335px" }}>
@@ -15,7 +16,8 @@ function Walkings () {
         <th  style={{padding: 0}}>
         <Table margin="0">
         { walkingsData.map( walking => {
-          return <Walking key={ walking.id } walking={walking} />
+          i++;
+          return <Walking key={ i } id={ i } walking={walking} />;        
         }) }
         </Table>
         </th>

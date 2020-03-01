@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import Tr from "./Tr";
-import Th from "./Th";
-import P from './P';
-import ButtonAdd from './ButtonAdd';
+import Tr from "../Tr";
+import Th from "../Th";
+import P from '../P';
+import ButtonAdd from '../ButtonAdd';
 
 
 function WalkingAdd(props) {
