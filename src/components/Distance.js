@@ -41,7 +41,7 @@ function calculationDistance(dist) {
             if(metrs === 0){
                 break;
             }else {
-                metrsText = km + " метров";
+                metrsText = metrs + " метров";
                 break;
             }
         case 1:
