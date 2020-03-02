@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-class CustomScrollbars extends Component {
-    renderThumb({ style, ...props }) {
-        const thumbStyle = {
-            backgroundColor: `#1C2025`
-        };
-        return (
-            <div
-                style={{ ...style, ...thumbStyle }}
-                {...props}/>
-        );
-    }
+class CustomScrollbarsTable extends Component {    
 
   render() {
     return (
@@ -28,4 +18,4 @@ class CustomScrollbars extends Component {
   }
 }
 
-export default CustomScrollbars
+export default CustomScrollbarsTable;

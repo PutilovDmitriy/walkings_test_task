@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
-import CustomScrollbars from '../CustomScrollbars';
 import Walking from './Walking';
 import Table from "../Table";
 import Context from '../../context';
+import CustomScrollbarsTable from "./CustomScrollbarsTable";
 
 
 function Walkings () {  
@@ -11,7 +11,7 @@ function Walkings () {
     let i = 0;
 
     return (
-      <CustomScrollbars style={{ width: "335px" }}>
+      <CustomScrollbarsTable style={{ width: "335px" }}>
       <tr> 
         <th  style={{padding: 0}}>
         <Table margin="0">
@@ -22,7 +22,7 @@ function Walkings () {
         </Table>
         </th>
       </tr>
-      </CustomScrollbars>
+      </CustomScrollbarsTable>
     )
 }
 
