@@ -7,7 +7,7 @@ import Element from '../Element';
 
 function WalkingsBlock(props) {
     return(
-        <Element float="left">
+        <Element marginLeft="7%" >
         <Table>
             <TitleWalkings/>
             <Walkings walkingsData={ props.walkingsData}/>

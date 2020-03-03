@@ -4,6 +4,7 @@ import WalkingsBlock from './WalkingsBlock/WalkingsBlock';
 import WalkingAddForm from './WalkingsBlock/WalkingAddForm';
 import Context from '../context';
 import ChartBlock from './ChartBlock';
+import Header from './Header';
 
 function Home() {
     let [walkingsData, setWalkingsData] = useState([]);
@@ -53,6 +54,7 @@ function Home() {
 
     return (
         <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingsData, sortByDate, sortByDistance, sortDate, sortDistance }}>
+        <Header>Hello</Header>
         <Wrapper>
             <WalkingsBlock openForm={ walkingOpenForm } walkingsData={ walkingsData }/>
             {walkingAddForm && <WalkingAddForm onCreate={ addWalking }/>}
