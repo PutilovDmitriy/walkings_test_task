@@ -1,6 +1,6 @@
 import React from "react";
-import Tr from '../Tr';
-import Th from '../Th';
+import Tr from '../styled-components/Tr';
+import Th from '../styled-components/Th';
 import Distance from './Distance'
 import WalkingDate from "./Date";
 

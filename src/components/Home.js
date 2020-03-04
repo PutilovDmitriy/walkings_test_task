@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Wrapper from './Wrapper'
+import Wrapper from './styled-components/Wrapper'
 import WalkingsBlock from './WalkingsBlock/WalkingsBlock';
-import WalkingAddForm from './WalkingsBlock/WalkingAddForm';
 import Context from '../context';
-import ChartBlock from './ChartBlock';
-import Header from './Header';
+import ChartBlock from './ChartBlock/ChartBlock';
+import Header from './styled-components/Header';
 
 function Home() {
     let [walkingsData, setWalkingsData] = useState([]);
@@ -53,11 +52,10 @@ function Home() {
 
 
     return (
-        <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingsData, sortByDate, sortByDistance, sortDate, sortDistance }}>
-        <Header>Hello</Header>
+        <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingAddForm, addWalking, walkingsData, sortByDate, sortByDistance, sortDate, sortDistance }}>
+        <Header marginBottom="0">Hello</Header>
         <Wrapper>
             <WalkingsBlock openForm={ walkingOpenForm } walkingsData={ walkingsData }/>
-            {walkingAddForm && <WalkingAddForm onCreate={ addWalking }/>}
             <ChartBlock/>
         </Wrapper>
         </Context.Provider>  

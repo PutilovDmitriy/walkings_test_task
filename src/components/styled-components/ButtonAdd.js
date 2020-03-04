@@ -5,7 +5,7 @@ export default styled.button`
     height: 60px;
     padding: 0;
     border: none;
-    font: inherit;
+    font-family: 'PT Sans Caption', sans-serif;
     color: inherit;
     background-color: transparent;
     cursor: pointer;

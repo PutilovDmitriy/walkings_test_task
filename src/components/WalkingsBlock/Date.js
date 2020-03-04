@@ -1,5 +1,5 @@
 import React from "react";
-import P from '../P';
+import P from '../styled-components/P';
 
 function ucFirst(str) {
     if (!str) return str;

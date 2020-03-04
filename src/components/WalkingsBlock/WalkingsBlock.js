@@ -1,9 +1,9 @@
 import React from 'react';
 import Walkings from './Walkings';
-import Table from '../Table';
+import Table from '../styled-components/Table';
 import TitleWalkings from './TitleWalkings';
 import WalkingAddButton from './WalkingAddButton';
-import Element from '../Element';
+import Element from '../styled-components/Element';
 
 function WalkingsBlock(props) {
     return(

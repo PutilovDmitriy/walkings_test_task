@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import Context from '../../context';
-import Thead from '../Thead'
-import Tr from '../Tr';
-import Th from '../Th';
-import P from '../P';
+import Thead from '../styled-components/Thead'
+import Tr from '../styled-components/Tr';
+import Th from '../styled-components/Th';
+import P from '../styled-components/P';
 
 
 
 function TitleWalkings() {
 
-    const { sortByDate, sortByDistance, sortDate, sortDistance } = useContext(Context);
+    const { sortByDate, sortByDistance} = useContext(Context);
 
     return(
       <Thead>
