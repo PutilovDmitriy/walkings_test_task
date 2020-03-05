@@ -10,8 +10,11 @@
     "react-custom-scroll": "^4.2.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.2.0",
     "react-scripts": "3.0.1",
     "recharts": "^2.0.0-beta.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "serialize-javascript": "^3.0.0",
     "styled-components": "^5.0.1",
     "victory": "^34.1.1"

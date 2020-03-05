@@ -138,7 +138,7 @@ function ChartBlock() {
         onChange={changedIndex}
           >
         <LineChart>
-              <Line type="linear" dataKey="distance" stroke="#EC174F" fill="#EC174F" dot={{ stroke: '#EC174F', strokeWidth: 1 }} />
+              <Line type="linear" dataKey="distance" stroke="#EC174F" fill="#EC174F" dot={false} />
         </LineChart>
     </Brush>
     </ComposedChart>

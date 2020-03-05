@@ -6,10 +6,10 @@ import ChartBlock from './ChartBlock/ChartBlock';
 import Header from './styled-components/Header';
 
 function Home() {
-    let [walkingsData, setWalkingsData] = useState([]);
-    let [sortDate, setSortDate] = useState(false);
-    let [sortDistance, setSortDistance] = useState(false);
-    let [walkingAddForm, setWalkingAddForm] = useState(false);
+    const [walkingsData, setWalkingsData] = useState([]);
+    const [sortDate, setSortDate] = useState(null);
+    const [sortDistance, setSortDistance] = useState(null);
+    const [walkingAddForm, setWalkingAddForm] = useState(false);
 
     const walkingOpenForm = () => setWalkingAddForm(true);
     const walkingCloseForm = () => setWalkingAddForm(false);
@@ -39,15 +39,26 @@ function Home() {
     };
 
     function sortByDate() {
-                sortDate ? setWalkingsData(walkingsData.sort((a, b) => a.date < b.date ? 1 : -1))
-                : setWalkingsData(walkingsData.sort((a, b) => a.date > b.date ? 1 : -1));
-                setSortDate(!sortDate);
+                if (sortDate) {
+                    setWalkingsData(walkingsData.sort((a, b) => a.date > b.date ? 1 : -1));
+                    setSortDate(false);
+                }else {
+                    setWalkingsData(walkingsData.sort((a, b) => a.date < b.date ? 1 : -1));
+                    setSortDate(true);
+                }
+                setSortDistance(null);
+                
             };
 
     function sortByDistance() {            
-            sortDistance ? setWalkingsData(walkingsData.sort((a, b) => a.distance < b.distance ? 1 : -1))
-                : setWalkingsData(walkingsData.sort((a, b) => a.distance > b.distance ? 1 : -1));
-            setSortDistance(!sortDistance);
+            if(sortDistance) {
+                setWalkingsData(walkingsData.sort((a, b) => a.distance > b.distance ? 1 : -1));
+                setSortDistance(false);
+            } else {
+                setWalkingsData(walkingsData.sort((a, b) => a.distance < b.distance ? 1 : -1));
+                setSortDistance(true)
+            } 
+            setSortDate(null);
           };
 
 
