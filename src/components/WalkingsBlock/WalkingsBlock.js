@@ -10,12 +10,12 @@ import WalkingContext from '../../context2';
 function WalkingsBlock(props) {
     const [newWalkingDate, setNewWalkingDate] = useState("");
     const [newWalkingDistance, setNewWalkingDistance] = useState(null);
-    const { addWalking } = useContext(Context);
+    const { addNewWalking } = useContext(Context);
 
     function submitTest(event) {
         event.preventDefault()
         if (newWalkingDate.trim() && newWalkingDistance.trim()) {
-            addWalking(newWalkingDate, newWalkingDistance);
+            addNewWalking(newWalkingDate, newWalkingDistance);
             setNewWalkingDate(""); 
             setNewWalkingDistance("null");
         }
@@ -26,7 +26,7 @@ function WalkingsBlock(props) {
             <Element marginLeft="7%" >
             <Table>
                 <TitleWalkings/>
-                <Walkings walkingsData={ props.walkingsData}/>
+                <Walkings/>
                 <WalkingAddButton openForm={ props.openForm }/>
             </Table>
             </Element>

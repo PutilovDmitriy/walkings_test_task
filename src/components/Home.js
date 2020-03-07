@@ -5,10 +5,12 @@ import Context from '../context';
 import ChartBlock from './ChartBlock/ChartBlock';
 import Header from './styled-components/Header';
 
-function Home() {
-    const [walkingsData, setWalkingsData] = useState([]);
-    const [sortDate, setSortDate] = useState(null);
-    const [sortDistance, setSortDistance] = useState(null);
+function Home({ walkingsData, addWalking, updateWalkings, sortDate, sortDistance, changeSortDate, changeSortDistance }) {
+    // const [walkingsData, setWalkingsData] = useState([]);
+    // const walkingsData = props.walkingsData
+    // console.log(props);
+    // console.log(sortDate + " " + sortDistance);
+
     const [walkingAddForm, setWalkingAddForm] = useState(false);
 
     const walkingOpenForm = () => setWalkingAddForm(true);
@@ -18,17 +20,18 @@ function Home() {
         fetch("http://localhost:3000/walking")
             .then(response => response.json())
             .then(data => {
-                setWalkingsData(data);
+                addWalking(data);
             });
     }, []);
 
-    function addWalking(date, distance) {
-        setWalkingsData(walkingsData.concat([
+    function addNewWalking(date, distance) {
+        addWalking([
             {
+            id: walkingsData.length,
             date: date,
             distance: distance
             }
-        ]));
+        ]); 
         fetch('http://localhost:3000/walking/', {
             method: 'POST',
             headers: {
@@ -40,30 +43,27 @@ function Home() {
 
     function sortByDate() {
                 if (sortDate) {
-                    setWalkingsData(walkingsData.sort((a, b) => a.date > b.date ? 1 : -1));
-                    setSortDate(false);
+                    updateWalkings(walkingsData.sort((a, b) => a.date > b.date ? 1 : -1));
+                    changeSortDate(false);
                 }else {
-                    setWalkingsData(walkingsData.sort((a, b) => a.date < b.date ? 1 : -1));
-                    setSortDate(true);
-                }
-                setSortDistance(null);
-                
+                    updateWalkings(walkingsData.sort((a, b) => a.date < b.date ? 1 : -1));
+                    changeSortDate(true);
+                }                
             };
 
     function sortByDistance() {            
             if(sortDistance) {
-                setWalkingsData(walkingsData.sort((a, b) => a.distance > b.distance ? 1 : -1));
-                setSortDistance(false);
+                updateWalkings(walkingsData.sort((a, b) => a.distance > b.distance ? 1 : -1));
+                changeSortDistance(false);
             } else {
-                setWalkingsData(walkingsData.sort((a, b) => a.distance < b.distance ? 1 : -1));
-                setSortDistance(true)
-            } 
-            setSortDate(null);
+                updateWalkings(walkingsData.sort((a, b) => a.distance < b.distance ? 1 : -1));
+                changeSortDistance(true)
+            }
           };
 
 
     return (
-        <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingAddForm, addWalking, walkingsData, sortByDate, sortByDistance, sortDate, sortDistance }}>
+        <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingAddForm, addNewWalking, walkingsData, sortByDate,  sortDate, sortDistance, sortByDistance }}>
         <Header marginBottom="0">Hello</Header>
         <Wrapper>
             <WalkingsBlock openForm={ walkingOpenForm } walkingsData={ walkingsData }/>

@@ -10,6 +10,7 @@ function Walkings () {
 
     const { walkingAddForm , walkingsData} = useContext(Context);
     let i = 0;
+    console.log(walkingsData);    
 
     return (
       <CustomScrollbarsTable style={{ width: "335px" }}>
@@ -17,8 +18,8 @@ function Walkings () {
         <th  style={{padding: 0}}>      
         <Table margin="0">
         { walkingsData.map( walking => {
-          i++;
-          return <Walking key={ i } id={ i } walking={walking} />;        
+          i++;          
+          return <Walking key={ walking.id } id={ i } walking={walking} />;        
         }) }
         </Table>
         {walkingAddForm && <WalkingAddForm/>} 
