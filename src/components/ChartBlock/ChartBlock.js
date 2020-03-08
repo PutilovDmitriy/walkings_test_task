@@ -117,7 +117,7 @@ function ChartBlock() {
     
     return (
     <Element marginRight="7%">
-    <Header invert={true}>Суммарная активность</Header>
+    <Header invert={true} margin="20px 40px" ><P fontSize="36px" fontHeight="47px">Суммарная активность</P></Header>
     <ComposedChart width={800} height={400} data={ walkingsDataTotal } margin={{ top: 10, right: 20, bottom: 10 , left: 0 }}>
     <CartesianGrid stroke="#ccc" vertical={false} />
         <Bar dataKey="distance" barSize={1} fill="#ccc" />
@@ -129,7 +129,7 @@ function ChartBlock() {
     <Brush
         dataKey="date"
         height={40}
-        stroke="blue"
+        stroke="#1C2025"
         y={360}
         startIndex={ startIndex }
         endIndex={ endIndex }

@@ -18,7 +18,7 @@ function Walkings () {
         <Table margin="0">
         { walkingsData.map( walking => {          
           i++;          
-          return <Walking key={ i } id={ walking.id } colorId={ i } walking={walking} />;        
+          return <Walking key={ i } id={ walking.id } listId={ i } walking={walking} />;        
         }) }
         </Table>
         {walkingAddForm && <WalkingAddForm/>} 

@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
     fetchWalkings: bindActionCreators(fetchWalkings, dispatch),
     addWalking: bindActionCreators(addWalking, dispatch),
-    deliteWalking: onClick => bindActionCreators(deliteWalking, dispatch),
+    deliteWalking: bindActionCreators(deliteWalking, dispatch),
     changeSortDate: bindActionCreators(changeSortDate, dispatch),
     changeSortDistance: bindActionCreators(changeSortDistance, dispatch),
     openWalkingForm: bindActionCreators(openAddWalkingForm, dispatch),

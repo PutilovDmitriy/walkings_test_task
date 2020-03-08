@@ -12,9 +12,8 @@ function primeriDetect(id){
 }
 
 function Walking( props ) {    
-    console.log(props.id);    
     return (
-     <Tr bgColor={ primeriDetect(props.colorId) }>
+     <Tr bgColor={ primeriDetect(props.listId) }>
         <Th marginLeft="16px"><WalkingDate date={ props.walking.date }/></Th>
         <Th><Distance distance={ props.walking.distance }/></Th> 
     </Tr>

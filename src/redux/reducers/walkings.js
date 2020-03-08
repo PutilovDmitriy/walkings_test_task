@@ -35,14 +35,18 @@ export default function walkings(state = initialState, action) {
         walks: []
       };
       case ADD_WALKING:     
-        return Object.assign({}, { walks: state.walks.concat(action.walking), loading: state.loading, error: state.error})
+        return Object.assign({}, { walks: state.walks.concat(action.walking), loading: state.loading, error: state.error});
       case DELITE_WALKING:
-        let id = () => {for(let i = 0; i < state.walks.length; i++) {
-          if(state.walks[i].id === action.id) {
+        let id = () => {
+          for(let i = 0; i < state.walks.length; i++) {       
+          if(state.walks[i].id === action.id) { 
+            console.log(i);                                         
             return i;
           }
         }};
-        return Object.assign({}, { walks: [].concat(state.walks.slice(id, 1), state.walks.slice(id+1)), loading: state.loading, error: state.error})        
+        if (id() === undefined) {
+          return state
+        }else return Object.assign({}, { walks: [].concat(state.walks.slice(0, id()), state.walks.slice(id() + 1)), loading: state.loading, error: state.error});
     default:
       return state;
   }
