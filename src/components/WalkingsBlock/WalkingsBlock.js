@@ -10,7 +10,7 @@ import WalkingContext from '../../context2';
 function WalkingsBlock(props) {
     const [newWalkingDate, setNewWalkingDate] = useState("");
     const [newWalkingDistance, setNewWalkingDistance] = useState(null);
-    const { addNewWalking } = useContext(Context);
+    const { addNewWalking} = useContext(Context);
 
     function submitTest(event) {
         event.preventDefault()
@@ -27,7 +27,7 @@ function WalkingsBlock(props) {
             <Table>
                 <TitleWalkings/>
                 <Walkings/>
-                <WalkingAddButton openForm={ props.openForm }/>
+                <WalkingAddButton/>
             </Table>
             </Element>
         </WalkingContext.Provider>

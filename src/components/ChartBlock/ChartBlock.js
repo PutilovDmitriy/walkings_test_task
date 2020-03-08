@@ -21,8 +21,7 @@ function ChartBlock() {
             walking[date] = walking[date] ? walking[date] + value.distance 
             : value.distance;
             return walking;
-          }, {});
-          
+          }, {});          
           let i = 0;
           let walks = Object.keys(methods).map(function(date) {
             ++i;

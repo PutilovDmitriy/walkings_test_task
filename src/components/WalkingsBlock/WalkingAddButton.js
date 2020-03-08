@@ -7,8 +7,8 @@ import Context from "../../context";
 import WalkingContext from '../../context2';
 
 
-function WalkingAdd(props) {
-    const { walkingAddForm, walkingOpenForm} = useContext(Context);
+function WalkingAdd() {
+    const { walkingAddForm, openWalkingForm} = useContext(Context);
     const { submitTest } = useContext(WalkingContext);
 
 
@@ -18,7 +18,7 @@ function WalkingAdd(props) {
 
     return(
         <Tr bgColor={walkingAddForm ? "rebeccapurple" :"#EC174F"} textAlign="center">
-            <ButtonAdd onClick={walkingAddForm ? submitTest : walkingOpenForm} onMouseDown={setDown} onMouseUp={setUp}>
+            <ButtonAdd onClick={walkingAddForm ? submitTest : openWalkingForm} onMouseDown={setDown} onMouseUp={setUp}>
                 <Th marginLeft="0px" textAlign="center"><P fontSize="18px" fontHeight="23px" color={color}>Добавить запись</P></Th>
             </ButtonAdd>
         </Tr>

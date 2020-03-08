@@ -1,29 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Wrapper from './styled-components/Wrapper'
 import WalkingsBlock from './WalkingsBlock/WalkingsBlock';
 import Context from '../context';
 import ChartBlock from './ChartBlock/ChartBlock';
 import Header from './styled-components/Header';
 
-function Home({ walkingsData, addWalking, updateWalkings, sortDate, sortDistance, changeSortDate, changeSortDistance }) {
-    // const [walkingsData, setWalkingsData] = useState([]);
-    // const walkingsData = props.walkingsData
-    // console.log(props);
-    // console.log(sortDate + " " + sortDistance);
+function Home({ fetchWalkings, walkingsData, addWalking, deliteWalking, sortDate, sortDistance, changeSortDate, changeSortDistance, walkingAddForm, openWalkingForm, closeWalkingForm }) {
+    
+    const initFetch = useCallback(() => {
+        fetchWalkings();
+    },[fetchWalkings]);
 
-    const [walkingAddForm, setWalkingAddForm] = useState(false);
-
-    const walkingOpenForm = () => setWalkingAddForm(true);
-    const walkingCloseForm = () => setWalkingAddForm(false);
-
-    useEffect(() => {
-        fetch("http://localhost:3000/walking")
-            .then(response => response.json())
-            .then(data => {
-                addWalking(data);
-            });
-    }, []);
-
+    useEffect(() => { 
+        initFetch();
+    }, [initFetch]);
+    
     function addNewWalking(date, distance) {
         addWalking([
             {
@@ -41,32 +32,15 @@ function Home({ walkingsData, addWalking, updateWalkings, sortDate, sortDistance
           });       
     };
 
-    function sortByDate() {
-                if (sortDate) {
-                    updateWalkings(walkingsData.sort((a, b) => a.date > b.date ? 1 : -1));
-                    changeSortDate(false);
-                }else {
-                    updateWalkings(walkingsData.sort((a, b) => a.date < b.date ? 1 : -1));
-                    changeSortDate(true);
-                }                
-            };
-
-    function sortByDistance() {            
-            if(sortDistance) {
-                updateWalkings(walkingsData.sort((a, b) => a.distance > b.distance ? 1 : -1));
-                changeSortDistance(false);
-            } else {
-                updateWalkings(walkingsData.sort((a, b) => a.distance < b.distance ? 1 : -1));
-                changeSortDistance(true)
-            }
-          };
+    const sortByDate = () => (sortDate ===  null) ? changeSortDate(true) : changeSortDate(!sortDate);
+    const sortByDistance =  () => (sortDistance === null) ? changeSortDistance(true) : changeSortDistance(!sortDistance);
 
 
     return (
-        <Context.Provider value={{ walkingOpenForm, walkingCloseForm, walkingAddForm, addNewWalking, walkingsData, sortByDate,  sortDate, sortDistance, sortByDistance }}>
+        <Context.Provider value={{ openWalkingForm, closeWalkingForm, walkingAddForm, addNewWalking, walkingsData, sortByDate,  sortDate, sortDistance, sortByDistance }}>
         <Header marginBottom="0">Hello</Header>
         <Wrapper>
-            <WalkingsBlock openForm={ walkingOpenForm } walkingsData={ walkingsData }/>
+            <WalkingsBlock walkingsData={ walkingsData }/>
             <ChartBlock/>
         </Wrapper>
         </Context.Provider>  

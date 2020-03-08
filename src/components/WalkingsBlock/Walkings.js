@@ -9,17 +9,16 @@ import WalkingAddForm from './WalkingAddForm';
 function Walkings () {  
 
     const { walkingAddForm , walkingsData} = useContext(Context);
-    let i = 0;
-    console.log(walkingsData);    
+    let i = 0; 
 
     return (
       <CustomScrollbarsTable style={{ width: "335px" }}>
       <tr> 
         <th  style={{padding: 0}}>      
         <Table margin="0">
-        { walkingsData.map( walking => {
+        { walkingsData.map( walking => {          
           i++;          
-          return <Walking key={ walking.id } id={ i } walking={walking} />;        
+          return <Walking key={ i } id={ walking.id } colorId={ i } walking={walking} />;        
         }) }
         </Table>
         {walkingAddForm && <WalkingAddForm/>} 
