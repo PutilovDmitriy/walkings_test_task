@@ -5,7 +5,7 @@ import Context from '../context';
 import ChartBlock from './ChartBlock/ChartBlock';
 import Header from './Header';
 
-function Home({ fetchWalkings, walkingsData, addWalking, deliteWalking, sortDate, sortDistance, changeSortDate, changeSortDistance, walkingAddForm, openWalkingForm, closeWalkingForm }) {
+function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWalking, sortDate, sortDistance, changeSortDate, changeSortDistance, walkingAddForm, openWalkingForm, closeWalkingForm }) {
     
     const initFetch = useCallback(() => {
         fetchWalkings();
@@ -31,6 +31,19 @@ function Home({ fetchWalkings, walkingsData, addWalking, deliteWalking, sortDate
             body: JSON.stringify({ date: date, distance: parseFloat(distance) })
           });       
     };
+
+    function changeWalking(id, i, walking) {
+        updateWalking(i, walking)
+        let url = 'http://localhost:3000/walking/' + id;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+              },
+            body: JSON.stringify({ date: walking.date, distance: parseFloat(walking.distance) })
+          });
+    };
+    
     function removeWalking(id) {
         deliteWalking(id);
         let url = 'http://localhost:3000/walking/' + id;
@@ -43,7 +56,7 @@ function Home({ fetchWalkings, walkingsData, addWalking, deliteWalking, sortDate
     const sortByDistance =  () => (sortDistance === null) ? changeSortDistance(true) : changeSortDistance(!sortDistance);
     
     return (
-        <Context.Provider value={{ openWalkingForm, closeWalkingForm, walkingAddForm, addNewWalking, walkingsData, sortByDate,  sortDate, sortDistance, sortByDistance }}>
+        <Context.Provider value={{ openWalkingForm, closeWalkingForm, walkingAddForm, addNewWalking, changeWalking, removeWalking , walkingsData, sortByDate,  sortDate, sortDistance, sortByDistance }}>
         <Header/>
         <Wrapper>
             <WalkingsBlock walkingsData={ walkingsData }/>

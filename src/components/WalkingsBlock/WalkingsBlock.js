@@ -11,13 +11,13 @@ function WalkingsBlock(props) {
     const [newWalkingDate, setNewWalkingDate] = useState("");
     const [newWalkingDistance, setNewWalkingDistance] = useState(null);
     const { addNewWalking} = useContext(Context);
-
+    
     function submitTest(event) {
         event.preventDefault()
-        if (newWalkingDate.trim() && newWalkingDistance.trim()) {
-            addNewWalking(newWalkingDate, newWalkingDistance);
-            setNewWalkingDate(""); 
-            setNewWalkingDistance("null");
+        if (newWalkingDate.trim() && newWalkingDistance !== null) {
+            addNewWalking(newWalkingDate, Number(newWalkingDistance));
+            setNewWalkingDistance("");
+            setNewWalkingDate("");
         }
     }
 

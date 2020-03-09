@@ -1,5 +1,5 @@
 import React from "react";
-import P from '../styled-components/P';
+import P from './styled-components/P';
 
 
 

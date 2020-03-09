@@ -1,4 +1,5 @@
 export const ADD_WALKING = "ADD_WALKING";
+export const UPDATE_WALKING = "UPDATE_WALKING"
 export const DELITE_WALKING = "DELITE_WALKING"
 export const CHANGE_SORT_DATE = "CHANGE_SORT_DATE";
 export const CHANGE_SORT_DISTANCE = "CHANGE_SORT_DISTANCE";
@@ -8,6 +9,10 @@ export const CLOSE_FORM = "CLOSE_FORM";
 
 export function addWalking(walking) {
   return { type: ADD_WALKING, walking };
+}
+
+export function updateWalking(i, walking) {
+  return { type: UPDATE_WALKING, i, walking}
 }
 
 export function deliteWalking(id) {

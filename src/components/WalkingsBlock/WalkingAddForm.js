@@ -6,7 +6,8 @@ import Form from '../styled-components/FormAdd';
 
 function WalkingAddForm() {
     const { closeWalkingForm } = useContext(Context);
-    const {newWalkingDate, setNewWalkingDate, setNewWalkingDistance ,newWalkingDistance} = useContext(WalkingContext);
+    const { newWalkingDate, setNewWalkingDate, newWalkingDistance, setNewWalkingDistance } = useContext(WalkingContext);
+    
     return(
         <Form>
             <Button onClick={ closeWalkingForm }>Закрыть</Button>

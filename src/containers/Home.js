@@ -2,9 +2,16 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import Home from '../components/Home';
 import { fetchWalkings } from '../redux/action/fetchAction'
-import { addWalking, deliteWalking, changeSortDate, changeSortDistance, openAddWalkingForm, closeAddWalkingForm } from '../redux/action'
+import { addWalking, updateWalking, deliteWalking, changeSortDate, changeSortDistance, openAddWalkingForm, closeAddWalkingForm } from '../redux/action';
 
 
+
+const changeFormatDate = (walkingsData) => {  
+  const nWalkingsData = walkingsData.map(walking => {
+    return Object.assign({}, {id: walking.id, date: walking.date.slice(0,10), distance: walking.distance});
+  })  
+  return nWalkingsData;
+}
 
 const getDisplayWalkings = (walkingsData, sortDate, sortDistance) => {
   if (sortDate !== null) {
@@ -32,7 +39,7 @@ const getDisplayWalkings = (walkingsData, sortDate, sortDistance) => {
 
 
 const mapStateToProps = state => ({    
-    walkingsData: getDisplayWalkings(state.walkings.walks, state.sortWalkings.sortDate, state.sortWalkings.sortDistance),
+    walkingsData: getDisplayWalkings(changeFormatDate(state.walkings.walks), state.sortWalkings.sortDate, state.sortWalkings.sortDistance),
     sortDate: state.sortWalkings.sortDate,
     sortDistance: state.sortWalkings.sortDistance,
     walkingAddForm: state.addWalkingForm
@@ -41,6 +48,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
     fetchWalkings: bindActionCreators(fetchWalkings, dispatch),
     addWalking: bindActionCreators(addWalking, dispatch),
+    updateWalking: bindActionCreators(updateWalking, dispatch),
     deliteWalking: bindActionCreators(deliteWalking, dispatch),
     changeSortDate: bindActionCreators(changeSortDate, dispatch),
     changeSortDistance: bindActionCreators(changeSortDistance, dispatch),
