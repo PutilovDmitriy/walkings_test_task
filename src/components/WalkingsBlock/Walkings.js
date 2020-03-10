@@ -7,9 +7,14 @@ import WalkingAddForm from './WalkingAddForm';
 
 
 function Walkings () {  
-
     const { walkingAddForm , walkingsData} = useContext(Context);
-    let i = 0; 
+
+    let i = 0;   
+    let marginTop = 0;
+    
+    const calculationMarginTop = (i) => {
+      marginTop = (8 - i) * 40 + "px";       
+    }
 
     return (
       <CustomScrollbarsTable style={{ width: "335px" }}>
@@ -17,11 +22,12 @@ function Walkings () {
         <th  style={{padding: 0}}>      
         <Table margin="0">
         { walkingsData.map( walking => {          
-          i++;          
+          i++;       
+          calculationMarginTop(i); 
           return <Walking key={ i } id={ walking.id } listId={ i } walking={walking} />;        
         }) }
         </Table>
-        {walkingAddForm && <WalkingAddForm/>} 
+        {walkingAddForm && <WalkingAddForm marginTop={ marginTop }/>} 
         </th>
       </tr>
       </CustomScrollbarsTable>
