@@ -10,11 +10,12 @@ import WalkingContext from '../../context2';
 function WalkingsBlock(props) {
     const [newWalkingDate, setNewWalkingDate] = useState("");
     const [newWalkingDistance, setNewWalkingDistance] = useState(null);
+    const [validDate, setValidDate] = useState(null);
     const { addNewWalking} = useContext(Context);
     
-    function submitTest(event) {
-        event.preventDefault()
-        if (newWalkingDate.trim() && newWalkingDistance !== null) {
+    function submitAddForm(event) {
+        event.preventDefault()        
+        if (newWalkingDate.trim() && newWalkingDistance !== null && validDate) {
             addNewWalking(newWalkingDate, Number(newWalkingDistance));
             setNewWalkingDistance("");
             setNewWalkingDate("");
@@ -22,7 +23,7 @@ function WalkingsBlock(props) {
     }
 
     return(
-        <WalkingContext.Provider value={{ submitTest, setNewWalkingDate, newWalkingDate, setNewWalkingDistance,  newWalkingDistance }}>
+        <WalkingContext.Provider value={{ submitAddForm, setNewWalkingDate, newWalkingDate, setNewWalkingDistance,  newWalkingDistance, validDate, setValidDate }}>
             <Element marginLeft="7%" >
             <Table>
                 <TitleWalkings/>

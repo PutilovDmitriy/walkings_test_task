@@ -11,19 +11,19 @@ function Walkings () {
 
     let i = 0;   
     let marginTop = 0;
-    
-    const calculationMarginTop = (i) => {
-      marginTop = (8 - i) * 40 + "px";       
+
+    const calculationMarginTop = (i) => {   
+      return (i < 8) ? marginTop = (8 - i) * 40 + "px" : marginTop = 0;      
     }
 
     return (
-      <CustomScrollbarsTable style={{ width: "335px" }}>
+      <CustomScrollbarsTable isAddForm={ walkingAddForm }>
       <tr> 
         <th  style={{padding: 0}}>      
         <Table margin="0">
         { walkingsData.map( walking => {          
           i++;       
-          calculationMarginTop(i); 
+          calculationMarginTop(i);       
           return <Walking key={ i } id={ walking.id } listId={ i } walking={walking} />;        
         }) }
         </Table>

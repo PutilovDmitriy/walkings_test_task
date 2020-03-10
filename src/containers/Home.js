@@ -20,7 +20,7 @@ const getDisplayWalkings = (walkingsData, sortDate, sortDistance) => {
         return walkingsData.sort((a, b) => a.date > b.date ? 1 : -1)
       case true: 
         return walkingsData.sort((a, b) => a.date < b.date ? 1 : -1)
-      default:
+      default:        
         return walkingsData; 
     }
   };
@@ -37,8 +37,7 @@ const getDisplayWalkings = (walkingsData, sortDate, sortDistance) => {
 }
 
 
-
-const mapStateToProps = state => ({    
+const mapStateToProps = state => ({      
     walkingsData: getDisplayWalkings(changeFormatDate(state.walkings.walks), state.sortWalkings.sortDate, state.sortWalkings.sortDistance),
     sortDate: state.sortWalkings.sortDate,
     sortDistance: state.sortWalkings.sortDistance,

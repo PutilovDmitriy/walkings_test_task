@@ -4,7 +4,7 @@ import Th from '../styled-components/Th';
 import ImgDoneDlt from '../styled-components/ImgDoneDlt';
 import DoneImg from '../../img/done.png';
 import DltImg from '../../img/dlt.png';
-import Input from '../styled-components/Input';
+import Input from '../styled-components/InputForEdit';
 import Context from "../../context";
 
 

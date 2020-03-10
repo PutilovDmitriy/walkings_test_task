@@ -6,4 +6,4 @@ export default styled.div`
     padding: 0;
     margin-top: 2.5%;
     font-family: 'PT Sans';
-`;
+`; 

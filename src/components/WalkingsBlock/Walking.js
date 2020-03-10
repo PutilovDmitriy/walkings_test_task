@@ -10,9 +10,7 @@ function Walking( {key, id, listId, walking} ) {
     const updateEdit = () => setIsEdit(!isEdit);
 
     function primeriDetect(id){    
-        if (id % 2 !== 0){
-            return "#FFFFFF";    
-        }
+        return (id % 2 !== 0) ? "#FFFFFF" : "#EFEFF0" ;
     }
 
     return ( 

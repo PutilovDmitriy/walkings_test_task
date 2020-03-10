@@ -8,5 +8,5 @@ export default styled.th`
     margin-left: ${props => props.marginLeft || "0px"};
     padding: 0;    
     align-items: center;
-    vertical-align: middle; 
+    justify-content: ${props => props.justify || "left"};
 `;

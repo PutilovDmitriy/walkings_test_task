@@ -9,4 +9,5 @@ export default styled.button`
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+    outline: none !important;
 `;

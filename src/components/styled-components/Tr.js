@@ -6,5 +6,5 @@ export default styled.tr`
     height: 40px;
     padding:0;
     align-items: center;
-    background-color: ${props => props.bgColor || "#EFEFF0" };
+    background-color: ${props => props.bgColor || "#FFFFFF" };
 `;

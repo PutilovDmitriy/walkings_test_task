@@ -9,7 +9,7 @@ import WalkingContext from '../../context2';
 
 function WalkingAdd() {
     const { walkingAddForm, openWalkingForm} = useContext(Context);
-    const { submitTest } = useContext(WalkingContext);
+    const { submitAddForm, validDate } = useContext(WalkingContext);
 
 
     let [color, setColor] = useState("#FFFFFF");
@@ -17,9 +17,9 @@ function WalkingAdd() {
     const setDown = () => setColor("#1C2025");
 
     return(
-        <Tr bgColor={walkingAddForm ? "rebeccapurple" :"#EC174F"} textAlign="center">
-            <ButtonAdd onClick={walkingAddForm ? submitTest : openWalkingForm} onMouseDown={setDown} onMouseUp={setUp}>
-                <Th marginLeft="0px" textAlign="center"><P fontSize="18px" fontHeight="23px" color={color}>Добавить запись</P></Th>
+        <Tr bgColor={walkingAddForm ? "#AAAAAA" :"#EC174F"} textAlign="center">
+            <ButtonAdd onClick={walkingAddForm ? submitAddForm : openWalkingForm } onMouseDown={setDown} onMouseUp={setUp}>
+                <Th marginLeft="0px" justify="center"><P fontSize="18px" fontHeight="23px" color={color}>{walkingAddForm ? "Подтвердить" : "Добавить запись"} </P></Th>
             </ButtonAdd>
         </Tr>
 
