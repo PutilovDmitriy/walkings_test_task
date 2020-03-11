@@ -5,5 +5,5 @@ export default styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: ${props => props.marginTop || "22px"};
 `;

@@ -34,7 +34,7 @@ function Footer({ walkingsDataTotal, startIndex, endIndex }) {
         switch (i % 10) {
         case 0:
             if(i === 0){
-                return (isKm ? "" : i + " метров");
+                return (isKm ? "" : "");
             }else {
                 return i + (isKm ? " километров " : " метров");
             }

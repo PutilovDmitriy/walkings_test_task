@@ -6,6 +6,6 @@ export default styled.p`
     font-weight: ${props => props.fontWeight || "normal"};
     font-size: ${props => props.fontSize || "9px"};
     line-height: ${props => props.fontHeight|| "12px"};
-    margin: 0; 
+    margin: ${props => props.margin || "0"}; 
     color: ${props => props.color};
 `;

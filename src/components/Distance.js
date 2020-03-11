@@ -44,7 +44,9 @@ function Distance(props) {
     calculateDistance(props.distance)
 
     return(
-        <P fontSize="12px">{ kmText && kmText}{ metrsText && metrsText }</P>
+        <P fontSize={ props.fontSize } color={ props.color} fontHeight={ props.fontHeight }>
+            { kmText && kmText}{ metrsText && metrsText }
+        </P>
 )};
 
 export default Distance;
