@@ -4,12 +4,10 @@ import Th from "../styled-components/Th";
 import P from '../styled-components/P';
 import ButtonAdd from '../styled-components/ButtonAdd';
 import Context from "../../context";
-import WalkingContext from '../../context2';
 
 
-function WalkingAdd() {
+function WalkingAdd({ submitAddForm, validDate, validDistance }) {
     const { walkingAddForm, openWalkingForm} = useContext(Context);
-    const { submitAddForm, validDate, validDistance } = useContext(WalkingContext);
 
 
     let [color, setColor] = useState("#FFFFFF");

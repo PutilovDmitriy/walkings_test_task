@@ -1,6 +1,5 @@
-import React, { useContext, useState} from 'react';
+import React from 'react';
 import { ComposedChart, LineChart, Line, Bar, LabelList, Brush, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import Context from '../../context';
 import Element from '../styled-components/Element'
 import Header from '../styled-components/Header';
 import Footer from './Footer';
@@ -8,29 +7,7 @@ import P from '../styled-components/P';
 import CustomTooltip from './CustomTooltip';
 
 
-function ChartBlock() {
-    const { walkingsData } = useContext(Context);
-    const [startIndex,setStartIndex] = useState(0);
-    const [endIndex, setEndIndex] = useState(4);
-
-    const walkingsDataTotal = countTotalActivity(walkingsData);
-
-    function countTotalActivity(walkings) {
-        let methods = walkings.reduce(function(walking, value) {
-            let date = value.date.substr(0, 10);
-            walking[date] = walking[date] ? walking[date] + value.distance 
-            : value.distance;
-            return walking;
-          }, {});          
-          let i = 0;
-          let walks = Object.keys(methods).map(function(date) {
-            ++i;
-            return { id: i,
-                     date: date, 
-                     distance: methods[date] };
-          });
-          return walks;
-    };
+function ChartBlock({ walkingsDataTotal, startIndex, changeStartIndex, endIndex, changeEndIndex}) {
 
     let timerId = 0;
     function changedIndex({startIndex, endIndex}){       
@@ -38,8 +15,8 @@ function ChartBlock() {
             clearTimeout(timerId);
         } 
         timerId = setTimeout(() => {           
-            setStartIndex(startIndex);
-            setEndIndex(endIndex);
+            changeStartIndex(startIndex);
+            changeEndIndex(endIndex);
         }, 500)
     };
 
@@ -60,7 +37,7 @@ function ChartBlock() {
     <CartesianGrid stroke="#ccc" vertical={false} />
         <Bar isAnimationActive={false} dataKey="distance" barSize={1} fill="#ccc" />
         <Line isAnimationActive={false} type="linear" dataKey="distance" stroke="#EC174F" strokeWidth={2} fill='#EC174F' dot={{ stroke: '#EC174F', strokeWidth: 6 }} activeDot={{ stroke: '#EC174F', strokeWidth: 12}} >
-            <LabelList dataKey="distance" fill="black" position="top" offset="15" formatter={(label) => { return (label + " м") } }/>
+            <LabelList dataKey="distance" fill="black" position="insideTop" offset="10" formatter={(label) => { return (label + " м") } }/>
         </Line>
         <XAxis dataKey="date" interval={0} padding={{ left: 30, right: 30}} tick={{stroke: '#ccc', fontSize: '10px'}} margin={5} tickLine={false}
             tickFormatter={tickFormatter} />

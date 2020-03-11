@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useContext} from 'react';
 import Walkings from './Walkings';
 import Table from '../styled-components/Table';
 import TitleWalkings from './TitleWalkings';
@@ -7,31 +7,27 @@ import Element from '../styled-components/Element';
 import Context from '../../context';
 import WalkingContext from '../../context2';
 
-function WalkingsBlock(props) {
-    const [newWalkingDate, setNewWalkingDate] = useState("");
-    const [newWalkingDistance, setNewWalkingDistance] = useState("");
-    const [validDate, setValidDate] = useState(null);
-    const [validDistance, setValidDistance] = useState(false);
+function WalkingsBlock({ walkingsData, newWalkingDate, newWalkingDistance, validDate, validDistance, changeNewWalkingDate, changeNewWalkingDistance, changeValidDate ,changeValidDistance }) {
     const { addNewWalking} = useContext(Context);
     
     function submitAddForm(event) {
         event.preventDefault()        
-        if (newWalkingDate.trim() && newWalkingDistance !== null && validDate) {
+        if (newWalkingDate.trim() && newWalkingDistance !== null && validDistance && validDate) {
             addNewWalking(newWalkingDate, Number(newWalkingDistance));
-            setNewWalkingDistance("");
-            setNewWalkingDate("");
-            setValidDate(null);
-            setValidDistance(false);
+            changeNewWalkingDate("");
+            changeNewWalkingDistance("");
+            changeValidDate(null);
+            changeValidDistance(false);
         }
     }
 
     return(
-        <WalkingContext.Provider value={{ submitAddForm, setNewWalkingDate, newWalkingDate, setNewWalkingDistance,  newWalkingDistance, validDate, setValidDate, validDistance, setValidDistance }}>
+        <WalkingContext.Provider value={{ submitAddForm, newWalkingDate, newWalkingDistance, validDate, validDistance, changeNewWalkingDate, changeNewWalkingDistance, changeValidDate ,changeValidDistance }}>
             <Element marginLeft="7%" >
             <Table>
                 <TitleWalkings/>
-                <Walkings/>
-                <WalkingAddButton/>
+                <Walkings walkingsData={ walkingsData }/>
+                <WalkingAddButton submitAddForm={submitAddForm} validDate={validDate} validDistance={validDistance}/>
             </Table>
             </Element>
         </WalkingContext.Provider>

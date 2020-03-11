@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import Wrapper from './styled-components/Wrapper'
-import WalkingsBlock from './WalkingsBlock/WalkingsBlock';
+import WalkingsBlock from '../containers/WalkingsBlock';
 import Context from '../context';
-import ChartBlock from './ChartBlock/ChartBlock';
+import ChartBlock from '../containers/ChartBlock';
 import Header from './Header';
 
 function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWalking, sortDate, sortDistance, changeSortDate, changeSortDistance, walkingAddForm, openWalkingForm, closeWalkingForm }) {
@@ -60,7 +60,7 @@ function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWa
         <Header/>
         <Wrapper>
             <WalkingsBlock walkingsData={ walkingsData }/>
-            <ChartBlock/>
+            <ChartBlock walkingsData={ walkingsData } />
         </Wrapper>
         </Context.Provider>  
     )

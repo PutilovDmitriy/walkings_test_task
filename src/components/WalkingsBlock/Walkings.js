@@ -6,8 +6,8 @@ import CustomScrollbarsTable from "./CustomScrollbarsTable";
 import WalkingAddForm from './WalkingAddForm';
 
 
-function Walkings () {  
-    const { walkingAddForm , walkingsData} = useContext(Context);
+function Walkings ({ walkingsData }) {  
+    const { walkingAddForm } = useContext(Context);
 
     let i = 0;   
     let marginTop = 0;

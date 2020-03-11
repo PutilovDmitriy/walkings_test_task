@@ -10,6 +10,9 @@ function Distance(props) {
     let metrsText = "";
 
     function showDistance(i , isKm) {    
+        if ((i % 100) >= 10 && (i % 100) <=20) {
+            return i +  (isKm ? " километров " : " метров");
+        }
         if (i >= 10 && i <=  20) {
             return i +  (isKm ? " километров " : " метров");
         }else {

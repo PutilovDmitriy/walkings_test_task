@@ -10,25 +10,26 @@ import P from '../styled-components/P';
 
 function WalkingAddForm({marginTop}) {
     const { closeWalkingForm } = useContext(Context);
-    const { submitAddForm ,newWalkingDate, setNewWalkingDate, newWalkingDistance, setNewWalkingDistance, validDate, setValidDate, setValidDistance } = useContext(WalkingContext);
+    const { submitAddForm , newWalkingDate, newWalkingDistance, validDate, changeNewWalkingDate, changeNewWalkingDistance, changeValidDate ,changeValidDistance } = useContext(WalkingContext);
 
     function validatyDate() {
         let dateFormat = require('dateformat');
+        let regex = /^\d{4}.\d{2}.\d{2}$/;
+        
         if(newWalkingDate !== "") {
-        if(newWalkingDate > dateFormat(new Date(), 'yyyy-mm-dd')) {
-            setValidDate(false);            
+        if(newWalkingDate > dateFormat(new Date(), 'yyyy-mm-dd') || newWalkingDate.match(regex) === null ) {
+            changeValidDate(false);            
         }
-        if(newWalkingDate < dateFormat(new Date(), 'yyyy-mm-dd')){
-            setValidDate(true)
-
-            
+        if(newWalkingDate < dateFormat(new Date(), 'yyyy-mm-dd') && newWalkingDate.match(regex) !== null){
+            changeValidDate(true)            
         }
-        }else setValidDate(null);
+        }else changeValidDate(null);
     }
+    
     function validatyDistance() {
        if(newWalkingDistance !== "") {
-        setValidDistance(true)
-       }else setValidDistance(false);
+        changeValidDistance(true)
+       }else changeValidDistance(false);
     }
 
 
@@ -39,12 +40,12 @@ function WalkingAddForm({marginTop}) {
             <P fontSize="14px" fontрHeight="16px" fontWeight="bold">Новая пробежка</P>
             <Wrapper>
                 <P fontSize="12px">Дата пробежки:</P>
-                <Input type="date" value={ newWalkingDate } onChange={event => setNewWalkingDate(event.target.value)} onBlur={ validatyDate }/>
+                <Input type="date" value={ newWalkingDate } onChange={event => changeNewWalkingDate(event.target.value)} onBlur={ validatyDate }/>
             </Wrapper>
             {!validDate && validDate !== null && <P margin="0 0 0 75px" fontSize="12px" color="#EC174F">Дата не может быть в будущем!</P> }
             <Wrapper marginTop={ !validDate && validDate !== null && "10px" }>  
                 <P fontHeight="14px" fontSize="12px">Дистанция:</P>
-                <Input type="number" placeholder="Дистанция в метрах" min={0} value={ newWalkingDistance } onChange={event => { setNewWalkingDistance(event.target.value) }} onKeyUp={ validatyDistance } />
+                <Input type="number" placeholder="Дистанция в метрах" min={0} value={ newWalkingDistance } onChange={event => { changeNewWalkingDistance(event.target.value) }} onKeyUp={ validatyDistance } />
             </Wrapper>
             </form>
         </Form> 
