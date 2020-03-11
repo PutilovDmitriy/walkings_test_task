@@ -1,10 +1,6 @@
 import React from "react";
 import P from './styled-components/P';
 
-
-
-
-
 function Distance(props) {
     let kmText = "";
     let metrsText = "";

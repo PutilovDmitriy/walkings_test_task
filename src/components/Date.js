@@ -34,8 +34,8 @@ function WalkingDate(props) {
     
     return (
         <div>
-            <P>{ ucFirst(weekday) }</P>
-            <P fontSize={ props.fontSize } color={ props.color} fontHeight={ props.fontHeight }> {day} </P>
+            <P fontSize={ props.fontSizeWeekday } color={ props.color}>{ ucFirst(weekday) }</P>
+            <P fontSize={ props.fontSizeDate } fontHeight={ props.fontHeight }> {day} </P>
         </div>
 )}
 
