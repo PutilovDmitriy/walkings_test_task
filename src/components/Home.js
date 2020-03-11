@@ -23,7 +23,7 @@ function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWa
             distance: distance
             }
         ]); 
-        fetch('http://localhost:3000/walking/', {
+        fetch('https://afternoon-wave-94253.herokuapp.com/walking/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json;charset=utf-8'
@@ -34,7 +34,7 @@ function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWa
 
     function changeWalking(id, i, walking) {
         updateWalking(i, walking)
-        let url = 'http://localhost:3000/walking/' + id;
+        let url = 'https://afternoon-wave-94253.herokuapp.com/walking/' + id;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -46,7 +46,7 @@ function Home({ fetchWalkings, walkingsData, addWalking, updateWalking, deliteWa
     
     function removeWalking(id) {
         deliteWalking(id);
-        let url = 'http://localhost:3000/walking/' + id;
+        let url = 'https://afternoon-wave-94253.herokuapp.com/walking/' + id;
         fetch(url, {
             method: 'DELETE'
           });

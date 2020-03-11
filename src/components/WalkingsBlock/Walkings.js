@@ -24,7 +24,7 @@ function Walkings ({ walkingsData }) {
         { walkingsData.map( walking => {          
           i++;       
           calculationMarginTop(i);       
-          return <Walking key={ i } id={ walking.id } listId={ i } walking={walking} />;        
+          return <Walking key={i} id={ walking.id } listId={ i } walking={walking}/>;        
         }) }
         </Table>
         {walkingAddForm && <WalkingAddForm marginTop={ marginTop }/>} 
