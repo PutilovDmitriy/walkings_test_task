@@ -58,9 +58,9 @@ function ChartBlock() {
     <Header invert={true} margin="20px 40px" ><P fontSize="36px" fontHeight="47px">Суммарная активность</P></Header>
     <ComposedChart width={800} height={400} data={ walkingsDataTotal } margin={{ top: 10, right: 20, bottom: 10 , left: 0 }}>
     <CartesianGrid stroke="#ccc" vertical={false} />
-        <Bar dataKey="distance" barSize={1} fill="#ccc" />
-        <Line type="linear" dataKey="distance" stroke="#EC174F" strokeWidth={2} fill='#EC174F' dot={{ stroke: '#EC174F', strokeWidth: 10 }} activeDot={{ stroke: '#EC174F', strokeWidth: 12}} >
-        <LabelList dataKey="distance" fill="#EC174F" position="top" offset="10" formatter={(label) => { return (label + " м") } }/>
+        <Bar isAnimationActive={false} dataKey="distance" barSize={1} fill="#ccc" />
+        <Line isAnimationActive={false} type="linear" dataKey="distance" stroke="#EC174F" strokeWidth={2} fill='#EC174F' dot={{ stroke: '#EC174F', strokeWidth: 6 }} activeDot={{ stroke: '#EC174F', strokeWidth: 12}} >
+            <LabelList dataKey="distance" fill="black" position="top" offset="15" formatter={(label) => { return (label + " м") } }/>
         </Line>
         <XAxis dataKey="date" interval={0} padding={{ left: 30, right: 30}} tick={{stroke: '#ccc', fontSize: '10px'}} margin={5} tickLine={false}
             tickFormatter={tickFormatter} />
