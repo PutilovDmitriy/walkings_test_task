@@ -34,7 +34,7 @@ function WalkingAddForm({marginTop}) {
                 <P fontSize="12px">Дата пробежки:</P>
                 <Input type="date" value={ newWalkingDate } onChange={event => setNewWalkingDate(event.target.value)} onBlur={ validatyDate }/>
             </Wrapper>
-            {!validDate && validDate !== null && <P margin="0 0 0 35px" fontSize="12px" color="#EC174F">Дата не может быть в будущем!</P> }
+            {!validDate && validDate !== null && <P margin="0 0 0 75px" fontSize="12px" color="#EC174F">Дата не может быть в будущем!</P> }
             <Wrapper marginTop={ !validDate && validDate !== null && "10px" }>  
                 <P fontHeight="14px" fontSize="12px">Дистанция:</P>
                 <Input type="number" placeholder="Дистанция" min={0} value={ newWalkingDistance } onChange={event => setNewWalkingDistance(event.target.value)} />
