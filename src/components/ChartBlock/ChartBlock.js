@@ -41,7 +41,7 @@ function ChartBlock({ walkingsDataTotal, startIndex, changeStartIndex, endIndex,
         </Line>
         <XAxis dataKey="date" interval={0} padding={{ left: 30, right: 30}} tick={{stroke: '#ccc', fontSize: '10px'}} margin={5} tickLine={false}
             tickFormatter={tickFormatter} />
-        <YAxis type="number" domain={['auto', 'dataMax + 100']} padding={{ buttom: 30, top: 0}} tick={{stroke: '#ccc', fontSize: '10px'}} margin={5} axisLine={false}  tickLine={false}  />
+        <YAxis type="number" domain={['dataMin - 400', 'dataMax + 400']} padding={{ buttom: 30, top: 0}} tick={{stroke: '#ccc', fontSize: '10px'}} margin={5} axisLine={false}  tickLine={false}  />
     <Tooltip cursor={false} content={ <CustomTooltip/> } />
     <Brush
         dataKey="date"

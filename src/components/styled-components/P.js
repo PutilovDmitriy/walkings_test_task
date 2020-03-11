@@ -8,4 +8,6 @@ export default styled.p`
     line-height: ${props => props.fontHeight|| "12px"};
     margin: ${props => props.margin || "0"}; 
     color: ${props => props.color};
+    max-width: ${props => props.maxWidth || ''};
+    text-overflow: ellipsis;
 `;

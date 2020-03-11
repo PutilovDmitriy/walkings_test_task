@@ -43,7 +43,7 @@ function Distance(props) {
     calculateDistance(props.distance)
 
     return(
-        <P fontSize={ props.fontSize } color={ props.color} fontHeight={ props.fontHeight }>
+        <P maxWidth={ props.maxWidth } fontSize={ props.fontSize } color={ props.color} fontHeight={ props.fontHeight }>
             { kmText && kmText}{ metrsText && metrsText }
         </P>
 )};
