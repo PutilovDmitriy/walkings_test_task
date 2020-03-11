@@ -19,7 +19,7 @@ export const fetchWalkingsFailure = error => ({
 export function fetchWalkings() {
   return dispatch => {
     dispatch(fetchWalkingsBegin());
-    return fetch("https://my-json-server.typicode.com/PutilovDmitriy/json-server/walking")
+    return fetch("http://localhost:3000/walking")
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
