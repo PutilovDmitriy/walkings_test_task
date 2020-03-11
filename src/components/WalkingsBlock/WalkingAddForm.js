@@ -27,7 +27,7 @@ function WalkingAddForm({marginTop}) {
     }
     
     function validatyDistance() {
-       if(newWalkingDistance !== "") {
+       if(newWalkingDistance !== "" && newWalkingDistance >= 0) {
         changeValidDistance(true)
        }else changeValidDistance(false);
     }
@@ -40,7 +40,7 @@ function WalkingAddForm({marginTop}) {
             <P fontSize="14px" fontрHeight="16px" fontWeight="bold">Новая пробежка</P>
             <Wrapper>
                 <P fontSize="12px">Дата пробежки:</P>
-                <Input type="date" value={ newWalkingDate } onChange={event => changeNewWalkingDate(event.target.value)} onBlur={ validatyDate }/>
+                <Input type="date" value={ newWalkingDate } onChange={event => changeNewWalkingDate(event.target.value)} onBlur={ validatyDate } onKeyUp={ validatyDate } />
             </Wrapper>
             {!validDate && validDate !== null && <P margin="0 0 0 75px" fontSize="12px" color="#EC174F">Дата не может быть в будущем!</P> }
             <Wrapper marginTop={ !validDate && validDate !== null && "10px" }>  
