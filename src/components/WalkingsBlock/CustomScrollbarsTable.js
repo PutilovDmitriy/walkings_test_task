@@ -6,7 +6,7 @@ class CustomScrollbarsTable extends Component {
   render() {
     return (
       <Scrollbars
-        style={{width: "75%"}}
+        style={{width: "333px"}}
         autoHeight 
         autoHeightMin = { 480 } 
         autoHeightMax = { 480 }

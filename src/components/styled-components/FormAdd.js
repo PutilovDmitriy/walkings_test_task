@@ -13,4 +13,5 @@ export default styled.div`
     margin-top: ${props => props.marginTop || "0"};
     background-color: #EFEFF0;
     border: 3px solid #1C2025;
+    box-sizing: border-box;
 `;
